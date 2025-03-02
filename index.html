@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karaoke Night</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Great Vibes', cursive;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            background-image: url("https://cdn.prod.website-files.com/66f194f8a14250e6b9f00626/679095c4bb9a0394d98d81c0_Final_Evies_pattern_textured-08.webp");
+        }
+        header {
+            /*background-color: #000;*/
+            color: #fff;
+            padding: 10px 0;
+        }
+        header img {
+            max-width: 150px;
+        }
+
+        .title {
+            color: #f0d18a;
+        }
+
+        .song-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .song-list li {
+            margin: 10px 0;
+            font-size: 25px;
+            color: #ffe2c0;
+        }
+        .lyrics {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        .highlight {
+            background-color: #ff0;
+        }
+
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            /*padding-top: 100px; !* Location of the box *!*/
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            animation-name: animatetop;
+
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            /*padding: 20px;*/
+            border: 1px solid #888;
+            /*width: 80%;*/
+            border-radius: 10px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal Header */
+        .modal-header {
+            background-image: url("https://cdn.prod.website-files.com/66f194f8a14250e6b9f00626/679095c4bb9a0394d98d81c0_Final_Evies_pattern_textured-08.webp");
+            padding: 2px 16px;
+            /*background-color: #5cb85c;*/
+            color: white;
+        }
+
+        /* Modal Body */
+        .modal-body {
+            padding: 2px 16px;
+            font-family: Nautila, sans-serif!important;
+        }
+
+
+        .button {
+            border: 2px solid #ffe2c0;
+            color: #ffe2c0;
+            text-align: center;
+            letter-spacing: 2.4px;
+            text-transform: uppercase;
+            background-color: #0000;
+            border-radius: 80px;
+            padding: 20px 40px;
+            font-family: Nautila, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 130%;
+            transition: background-color .4scubic-bezier(.25,.46,.45,.94), border-color .4scubic-bezier(.25,.46,.45,.94);
+        }
+
+        @keyframes animatetop {
+            from {top: -400px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="https://cdn.prod.website-files.com/66f194f8a14250e6b9f00626/66fd6a39ee17e8cf387dc25d_Logo%20Adaline-01.png" alt="Adaline Restaurant Logo" height="50px">
+    <h1 class="title">Karaoke Night</h1>
+</header>
+<div class="song-list">
+
+
+    <button
+            id="song-1-btn"
+            style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    opacity: 1;
+    transform-style: preserve-3d;"
+            class="button w-button">
+        song 1
+    </button>
+
+    <button
+            id="song-2-btn"
+            style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    opacity: 1;
+    transform-style: preserve-3d;"
+            class="button w-button">
+        song2
+    </button>
+
+
+    <button
+            id="song-3-btn"
+            style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    opacity: 1;
+    transform-style: preserve-3d;"
+            class="button w-button">
+        song 3
+    </button>
+
+    <button
+            id="song-4-btn"
+            style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    opacity: 1;
+    transform-style: preserve-3d;"
+            class="button w-button">
+        song 4
+    </button>
+
+    <button
+            id="song-5-btn"
+            style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    opacity: 1;
+    transform-style: preserve-3d;"
+            class="button w-button">
+        song 5
+    </button>
+
+    <!-- The Modal -->
+    <div id="song-1-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Song Name</h2>
+            </div>
+            <div class="modal-body">
+                <p>Ayy, Mustard on the beat, ho</p>
+                <p>Deebo any rap nigga, he a free throw</p>
+                <p>Man down, call an amberlamps, tell him, "Breathe, bro"</p>
+                <p>Nail a nigga to the cross, he walk around like Teezo</p>
+                <p>What's up with these jabroni-ass niggas tryna see Compton?</p>
+                <p>The industry can hate me, fuck 'em all and they mama</p>
+                <p>How many opps you really got? I mean, it's too many options</p>
+                <p>I'm finna pass on this body, I'm John Stockton</p>
+                <p>Beat your ass and hide the Bible if God watchin'</p>
+                <p>Sometimes you gotta pop out and show niggas</p>
+                <p>Certified boogeyman, I'm the one that up the score with 'em</p>
+                <p>Walk him down, whole time, I know he got some ho in him</p>
+                <p>Pole on him, extort shit, bully Death Row on him</p>
+                <p>Say, Drake, I hear you like 'em young</p>
+                <p>You better not ever go to cell block one</p>
+                <p>To any bitch that talk to him and they in love</p>
+                <p>Just make sure you hide your lil' sister from him</p>
+                <p>They tell me Chubbs the only one that get your hand-me-downs</p>
+                <p>And Party at the party playin' with his nose now</p>
+                <p>And Baka got a weird case, why is he around?</p>
+                <p>Certified Lover Boy? Certified pedophiles</p>
+                <p>Wop, wop, wop, wop, wop, Dot, fuck 'em up</p>
+                <p>Wop, wop, wop, wop, wop, I'ma do my stuff</p>
+                <p>Why you trollin' like a bitch? Ain't you tired?</p>
+                <p>Tryna strike a chord and it's probably A minor</p>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="song-2-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..2</p>
+        </div>
+    </div>
+
+</div>
+<div class="lyrics" id="lyrics"></div>
+<script>
+    const songs = {
+        song1: {
+            lyrics: [
+                "Line 1 of song 1",
+                "Line 2 of song 1",
+                "Line 3 of song 1",
+                "Line 4 of song 1"
+            ],
+            timings: [2000, 4000, 6000, 8000] // timings in milliseconds
+        },
+        song2: {
+            lyrics: [
+                "Line 1 of song 2",
+                "Line 2 of song 2",
+                "Line 3 of song 2",
+                "Line 4 of song 2"
+            ],
+            timings: [3000, 6000, 9000, 12000]
+        },
+        // Add more songs as needed
+    };
+
+    document.querySelectorAll('.song-list a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const songKey = this.getAttribute('data-song');
+            loadLyrics(songKey);
+        });
+    });
+
+    function loadLyrics(songKey) {
+        const song = songs[songKey];
+        const lyricsContainer = document.getElementById('lyrics');
+        lyricsContainer.innerHTML = '';
+        song.lyrics.forEach(line => {
+            const p = document.createElement('p');
+            p.textContent = line;
+            lyricsContainer.appendChild(p);
+        });
+        lyricsContainer.style.display = 'block';
+        scrollLyrics(lyricsContainer, song.timings);
+    }
+
+    function scrollLyrics(container, timings) {
+        const lines = container.querySelectorAll('p');
+        let currentLine = 0;
+        function highlightLine() {
+            if (currentLine > 0) {
+                lines[currentLine - 1].classList.remove('highlight');
+            }
+            if (currentLine < lines.length) {
+                lines[currentLine].classList.add('highlight');
+                lines[currentLine].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(highlightLine, timings[currentLine]);
+                currentLine++;
+            }
+        }
+        highlightLine();
+    }
+</script>
+
+<script>
+    // Get the modal
+    var modal1 = document.getElementById("song-1-modal");
+    // Get the button that opens the modal
+    var btn = document.getElementById("song-1-btn");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal1.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal1.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+    }
+
+
+
+    // modal-2
+    // Get the modal
+    var modal2 = document.getElementById("song-2-modal");
+    // Get the button that opens the modal
+    var btn2 = document.getElementById("song-2-btn");
+    // Get the <span> element that closes the modal
+    var span2 = document.getElementsByClassName("close")[1];
+    // When the user clicks the button, open the modal
+    btn2.onclick = function() {
+        modal2.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span2.onclick = function() {
+        modal2.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
